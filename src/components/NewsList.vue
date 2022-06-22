@@ -6,6 +6,7 @@
 					:id="value.id"
 					:title="value.title"
 					:description="value.introduction"
+					:image="value.images"
 					:type="value.type"
 					:date="value.date"
 					:color="types[value.type].color"

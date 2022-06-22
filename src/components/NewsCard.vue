@@ -2,7 +2,7 @@
 	<article class="news-card">
 		<a class="link" :href="`/${id}`" :title="title">
 			<figure class="news-card__image">
-				<img class="image" src="@/assets/test.jpg" alt="News representation" />
+				<img class="image" :src="image" :alt="title" />
 			</figure>
 		</a>
 		<div class="news-card__tag" :style="{ background: color }">
@@ -41,6 +41,10 @@ export default {
 			required: true,
 		},
 		description: {
+			type: String,
+			required: true,
+		},
+		image: {
 			type: String,
 			required: true,
 		},
