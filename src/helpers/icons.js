@@ -16,7 +16,8 @@ import {
 	faStar,
 	faArrowDownAZ,
 	faArrowDownShortWide,
-	faList
+	faList,
+	faWarning
 } from "@fortawesome/free-solid-svg-icons";
 
 /*
@@ -39,5 +40,6 @@ library.add(
 	faStar,
 	faArrowDownAZ,
 	faArrowDownShortWide,
-	faList
+	faList,
+	faWarning
 );
