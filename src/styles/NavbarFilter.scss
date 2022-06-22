@@ -1,0 +1,43 @@
+/*
+    Styles for filter
+*/
+
+.navbar-filter {
+	@include flex-row(initial, center);
+
+	&__caption {
+		color: $color-2;
+		font-weight: bold;
+	}
+
+	&__form {
+		@include flex-row(initial, center);
+		.select,
+		.input {
+			padding: 10px 20px;
+			border: none;
+			margin-left: 20px;
+			background: $color-1;
+			color: $color-2;
+		}
+		.input {
+			border: 1px rgba(0, 0, 0, 0.4) solid;
+			padding-right: 35px;
+		}
+	}
+
+	&__input {
+		position: relative;
+		@include flex-row(initial, center);
+		.icon {
+			position: absolute;
+			font-size: 1.3em;
+			color: $color-3;
+			right: 10px;
+			&--remove {
+				color: red;
+				cursor: pointer;
+			}
+		}
+	}
+}

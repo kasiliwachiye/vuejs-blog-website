@@ -8,6 +8,8 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import {
 	faNewspaper,
+	faSearch,
+	faTimesCircle
 } from "@fortawesome/free-solid-svg-icons";
 
 /*
@@ -21,5 +23,7 @@ library.add(
 	faGithub,
 	faLinkedin,
 	faFacebook,
-	faNewspaper
+	faNewspaper,
+	faSearch,
+	faTimesCircle
 );
