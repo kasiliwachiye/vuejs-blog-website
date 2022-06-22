@@ -3,8 +3,6 @@
 */
 
 body {
-	margin: 0;
-	padding: 0;
 	background: $color-1;
 }
 
@@ -36,12 +34,19 @@ input {
 	}
 }
 
+body,
 h1,
 h2,
 h3,
 h4,
 h5,
-p {
+p,
+figure {
 	padding: 0;
 	margin: 0;
+}
+
+a {
+	text-decoration: none;
+	@include transition;
 }

@@ -9,7 +9,8 @@ import {
 import {
 	faNewspaper,
 	faSearch,
-	faTimesCircle
+	faTimesCircle,
+	faLeaf,
 } from "@fortawesome/free-solid-svg-icons";
 
 /*
@@ -25,5 +26,6 @@ library.add(
 	faFacebook,
 	faNewspaper,
 	faSearch,
-	faTimesCircle
+	faTimesCircle,
+	faLeaf
 );
