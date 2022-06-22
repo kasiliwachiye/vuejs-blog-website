@@ -1,0 +1,11 @@
+/*
+    Import styles from here
+*/
+
+// Base styles
+@import "@/styles/base/vars.scss";
+@import "@/styles/base/mixins.scss";
+@import "@/styles/base/scaffolding.scss";
+
+// Component styles
+@import "@/styles/Navbar.scss";
