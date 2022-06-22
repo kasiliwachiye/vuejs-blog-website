@@ -12,8 +12,8 @@ const generateRandomColor = () => `rgb(${random(180)}, ${random(180)}, ${random(
 
 // Generates icon for the news type
 const generateIcon = () => {
-    const rand = random(3);
-    return rand === 0 ? "leaf" : rand === 1 ? "star" : "gears";
+    const list = ["leaf", "star", "gears", "newspaper", "microphone"];
+    return list[random(4)];
 };
 
 // Removes HTML tags in a string

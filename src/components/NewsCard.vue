@@ -2,7 +2,7 @@
 	<article class="news-card">
 		<a class="link" :href="`/${id}`" :title="title">
 			<figure class="news-card__image">
-				<img class="image" :src="image" :alt="title" />
+				<img class="image" src="@/assets/test.jpg" :alt="title" />
 			</figure>
 		</a>
 		<div class="news-card__tag" :style="{ background: color }">

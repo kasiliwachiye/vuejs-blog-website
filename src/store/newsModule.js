@@ -29,11 +29,15 @@ const mutations = {
         state.filteredNews = newsList;
     },
     addType: (state, typeName) => {
-        if (!state.types[typeName])
-            state.types[typeName] = {
-                color: generateRandomColor(),
-                icon: generateIcon()
+        if (!state.types[typeName]) {
+            state.types = {
+                ...state.types,
+                [typeName]: {
+                    color: generateRandomColor(),
+                    icon: generateIcon()
+                }
             };
+        }
     },
     setFilteredNews: (state, filteredNews) => state.filteredNews = filteredNews
 };

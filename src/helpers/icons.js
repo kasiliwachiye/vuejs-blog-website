@@ -17,7 +17,8 @@ import {
 	faArrowDownAZ,
 	faArrowDownShortWide,
 	faList,
-	faWarning
+	faWarning,
+	faMicrophone
 } from "@fortawesome/free-solid-svg-icons";
 
 /*
@@ -41,5 +42,6 @@ library.add(
 	faArrowDownAZ,
 	faArrowDownShortWide,
 	faList,
-	faWarning
+	faWarning,
+	faMicrophone
 );

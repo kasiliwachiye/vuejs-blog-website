@@ -28,7 +28,7 @@
 						v-for="(value, key) in types"
 						:key="key"
 						:value="key"
-						:selected="value === type"
+						:selected="key === type"
 					>
 						{{ key }}
 					</option>
@@ -121,6 +121,7 @@ export default {
 		},
 		news() {
 			if (this.news.length > 0) this.filterNews();
+			console.log(this.types);
 		},
 	},
 };
