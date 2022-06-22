@@ -41,7 +41,8 @@ h3,
 h4,
 h5,
 p,
-figure {
+figure,
+ul {
 	padding: 0;
 	margin: 0;
 }
@@ -49,4 +50,8 @@ figure {
 a {
 	text-decoration: none;
 	@include transition;
+}
+
+ul {
+	list-style-type: none;
 }

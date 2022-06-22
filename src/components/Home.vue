@@ -1,13 +1,15 @@
 <template>
 	<div id="app">
 		<Navbar />
-		<NewsCard />
+		<NewsList />
+		<SocialArea />
 	</div>
 </template>
 
 <script>
 import Navbar from "@/components/Navbar.vue";
-import NewsCard from "@/components/NewsCard.vue";
+import NewsList from "@/components/NewsList.vue";
+import SocialArea from "@/components/SocialArea.vue";
 
 /*
 	Main app entry
@@ -17,7 +19,8 @@ export default {
 	name: "App",
 	components: {
 		Navbar,
-		NewsCard,
+		NewsList,
+		SocialArea,
 	},
 };
 </script>

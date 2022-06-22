@@ -3,14 +3,17 @@
 		<figure class="news-card__image">
 			<img class="image" src="@/assets/test.jpg" alt="News representation" />
 		</figure>
-		<div class="news-card__tag"><Icon :icon="['fas', 'leaf']" /> Features</div>
+		<div class="news-card__tag" :style="{ background: color }">
+			<Icon :icon="['fas', icon]" /> {{ type }}
+		</div>
+		<div class="news-card__date">
+			<Icon :icon="['fas', 'calendar-alt']" /> <span>{{ processDate() }}</span>
+		</div>
 		<h2 class="news-card__title">
-			<a class="link" href="#0" title="View article"
-				>Expats in Quebec have 6 months to learn French</a
-			>
+			<a class="link" :href="`/${id}`" :title="title">{{ processTitle() }}</a>
 		</h2>
 		<div class="news-card__separator"></div>
-		<p class="news-card__description" v-html="description"></p>
+		<p class="news-card__description" v-html="processDescription()"></p>
 	</article>
 </template>
 
@@ -26,13 +29,46 @@ export default {
 	components: {
 		Icon: FontAwesomeIcon,
 	},
-	data() {
-		let description =
-			'<p><strong><span id="docs-internal-guid-56336bbf-7fff-ed23-ce59-704138eb6063">A clear focus of the Mauritian government&#39;s post-COVID strategy is to maintain a business-friendly environment and boost foreign investment. With this in mind, new measures have been announced by Finance Minister Renganaden Padayachy in the 2022-23 Budget.&nbsp; What are they? And in this post-COVID era, is Mauritius still a competitive destination?</span></strong></p>\r\n';
-		description = description.replace("<p>", "").replace("</p>", "");
-		return {
-			description,
-		};
+	props: {
+		id: {
+			type: Number,
+			required: true,
+		},
+		title: {
+			type: String,
+			required: true,
+		},
+		description: {
+			type: String,
+			required: true,
+		},
+		type: {
+			type: String,
+			required: true,
+		},
+		date: {
+			type: String,
+			required: true,
+		},
+		color: {
+			type: String,
+			required: true,
+		},
+		icon: {
+			type: String,
+			required: true,
+		},
+	},
+	methods: {
+		processDescription() {
+			return this.description.replace("<p>", "").replace("</p>", "");
+		},
+		processTitle() {
+			return this.title.replace("?", " ?");
+		},
+		processDate() {
+			return this.date.split(" ")[0].split("-").reverse().join("-");
+		},
 	},
 };
 </script>

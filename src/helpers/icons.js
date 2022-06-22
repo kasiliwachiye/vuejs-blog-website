@@ -11,6 +11,9 @@ import {
 	faSearch,
 	faTimesCircle,
 	faLeaf,
+	faCalendarAlt,
+	faGears,
+	faStar
 } from "@fortawesome/free-solid-svg-icons";
 
 /*
@@ -27,5 +30,8 @@ library.add(
 	faNewspaper,
 	faSearch,
 	faTimesCircle,
-	faLeaf
+	faLeaf,
+	faCalendarAlt,
+	faGears,
+	faStar
 );
