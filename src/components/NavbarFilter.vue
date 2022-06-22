@@ -3,11 +3,19 @@
 		<form class="navbar-filter__form">
 			<div class="group">
 				<label class="label">
-					<Icon :icon="['fas', 'calendar-alt']" /> Date:
+					<Icon :icon="['fas', 'arrow-down-a-z']" /> Order by:
 				</label>
-				<select class="select" @change="(e) => update('order', e.target.value)">
-					<option v-for="(item, key) in dateOrderList" :key="key" :value="item">
-						{{ item }}
+				<select
+					class="select"
+					@change="(e) => updateField('order', e.target.value)"
+				>
+					<option
+						v-for="(value, key) in orderList"
+						:key="key"
+						:value="value"
+						:selected="value === order"
+					>
+						{{ value }}
 					</option>
 				</select>
 			</div>
@@ -15,28 +23,28 @@
 				<label class="label">
 					<Icon :icon="['fas', 'arrow-down-short-wide']" /> Type:
 				</label>
-				<select class="select" @change="(e) => update('type', e.target.value)">
-					<option v-for="(item, key) in getTypelist" :key="key" :value="item">
-						{{ item }}
-					</option>
-				</select>
-			</div>
-			<div class="group">
-				<label class="label">
-					<Icon :icon="['fas', 'arrow-down-a-z']" /> Order:
-				</label>
-				<select class="select" @change="(e) => update('type', e.target.value)">
-					<option v-for="(item, key) in getTypelist" :key="key" :value="item">
-						{{ item }}
+				<select class="select" @change="(e) => updateField('type', e.target.value)">
+					<option
+						v-for="(value, key) in types"
+						:key="key"
+						:value="key"
+						:selected="value === type"
+					>
+						{{ key }}
 					</option>
 				</select>
 			</div>
 			<div class="group">
 				<label class="label"> <Icon :icon="['fas', 'search']" /> Search: </label>
 				<div class="navbar-filter__input">
-					<input class="input" type="text" placeholder="Keyword(s)" v-model="str" />
+					<input
+						class="input"
+						type="text"
+						placeholder="Keyword(s)"
+						v-model="search"
+					/>
 					<Icon
-						v-if="str.length > 0"
+						v-if="search.length > 0"
 						class="icon icon--remove"
 						:icon="['fas', 'times-circle']"
 						@click.prevent="flushSearch"
@@ -50,7 +58,13 @@
 <script>
 import { mapActions, mapGetters } from "vuex";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import { sortNewsType, sortNewsNewest, sortNewsOldest } from "@/helpers/utils";
+import {
+	sortNewsDate,
+	sortNewsType,
+	sortNewsKeyword,
+	sortNewsTitle,
+} from "@/helpers/utils";
+import { defaultType } from "@/helpers/const";
 
 /*
     Navigation and filter
@@ -62,41 +76,51 @@ export default {
 		Icon: FontAwesomeIcon,
 	},
 	data() {
+		const dateOrder = ["Newest article", "Oldest article"];
+		const titleOrder = ["A-Z title", "Z-A title"];
 		return {
-			str: "",
-			dateOrderList: ["Newest", "Oldest"],
+			dateOrder,
+			titleOrder,
+			orderList: [...dateOrder, ...titleOrder],
+			order: dateOrder[0],
+			type: defaultType,
+			search: "",
 		};
 	},
 	methods: {
-		...mapActions([
-			"updateOrder",
-			"updateType",
-			"updateSearch",
-			"updateFiltered",
-		]),
+		...mapActions(["updateFilteredNews"]),
+		// Flush keyword search bar
 		flushSearch() {
-			this.str = "";
-			this.updateSearch(this.str);
+			this.search = "";
 		},
-		update(field, data) {
-			if (field === "type") {
-				this.updateType(data);
-				this.updateFiltered(sortNewsType(this.newsList, data));
-			} else if (field === "order") {
-				this.updateOrder(data);
-				if (data === "Newest") this.updateFiltered(sortNewsNewest(this.newsList));
-				else this.updateFiltered(sortNewsOldest(this.newsList));
-			}
+		// Updates a filter field
+		updateField(field, data) {
+			if (field === "type") this.type = data;
+			else if (field === "order") this.order = data;
+			this.filterNews();
+		},
+		// Sort news list
+		filterNews() {
+			let filtered = [...this.news];
+			if (this.search.length > 0)
+				filtered = sortNewsKeyword(filtered, this.search);
+			filtered = sortNewsType(filtered, this.type);
+			// Select an order (by date or title)
+			if (this.dateOrder.includes(this.order))
+				filtered = sortNewsDate(filtered, this.order);
+			else if (this.titleOrder.includes(this.order))
+				filtered = sortNewsTitle(filtered, this.order);
+			// Update
+			this.updateFilteredNews(filtered);
 		},
 	},
-	computed: mapGetters(["getOrder", "getType", "getTypelist", "newsList"]),
-	created() {
-		this.updateOrder(this.dateOrderList[0]);
-		this.updateSearch(this.str);
-	},
+	computed: mapGetters(["types", "news", "filteredNews"]),
 	watch: {
-		str() {
-			this.updateSearch(this.str);
+		search() {
+			this.filterNews();
+		},
+		news() {
+			if (this.news.length > 0) this.filterNews();
 		},
 	},
 };

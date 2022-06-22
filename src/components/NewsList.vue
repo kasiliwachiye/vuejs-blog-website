@@ -1,15 +1,15 @@
 <template>
 	<div class="news-list container">
 		<ul class="news-list__list">
-			<li v-for="(item, key) in getFiltered" :key="key">
+			<li v-for="(value, key) in filteredNews" :key="key">
 				<NewsCard
-					:id="item.id"
-					:title="item.title"
-					:description="item.introduction"
-					:type="item.type"
-					:date="item.date"
-					:color="color[item.type] || 'red'"
-					:icon="icon[item.type] || 'leaf'"
+					:id="value.id"
+					:title="value.title"
+					:description="value.introduction"
+					:type="value.type"
+					:date="value.date"
+					:color="types[value.type].color"
+					:icon="types[value.type].icon"
 				/>
 			</li>
 		</ul>
@@ -29,23 +29,12 @@ export default {
 	components: {
 		NewsCard,
 	},
-	data() {
-		return {
-			color: {},
-			icon: {},
-		};
-	},
 	created() {
-		this.fetchNews()
-			.then(({ color, icon }) => {
-				this.color = { ...color };
-				this.icon = { ...icon };
-			})
-			.catch((err) => console.error(err));
+		this.getNews();
 	},
 	methods: {
-		...mapActions(["fetchNews"]),
+		...mapActions(["getNews"]),
 	},
-	computed: mapGetters(["getFiltered"]),
+	computed: mapGetters(["filteredNews", "types"]),
 };
 </script>

@@ -16,18 +16,26 @@ const generateIcon = () => {
     return rand === 0 ? "leaf" : rand === 1 ? "star" : "gears";
 };
 
-// Sort news in different ways
-const sortNewsNewest = (news) => news.sort((a, b) => a.timestamp - b.timestamp);
-const sortNewsOldest = (news) => news.sort((a, b) => b.timestamp - a.timestamp);
-const sortNewsTitle = (news, search) => news.filter(item => item.title.match(new RegExp(search, "gi")));
-const sortNewsType = (news, type) => type === defaultType ? news : news.filter(item => item.type.toLowerCase() === type.toLowerCase());
+// Removes HTML tags in a string
+const removeTags = (str) => str.replace(/(<([^>]+)>)/ig, "");
+
+// Sort news by newest or oldest date
+// const sortNewsDate = (news, direction) => direction === "Newest article" ? news.sort((a, b) => a.timestamp - b.timestamp) : news.sort((a, b) => b.timestamp - a.timestamp);
+const sortNewsDate = (news, direction) => direction === "Newest article" ? news.sort((a, b) => a.timestamp - b.timestamp) : news.sort((a, b) => b.timestamp - a.timestamp);
+// Sort news by keywords
+const sortNewsKeyword = (news, keyword) => news.filter(value => value.title.match(new RegExp(keyword, "gi")) || value.introduction.match(new RegExp(keyword, "gi")) || value.body.match(new RegExp(keyword, "gi")));
+// Sort news by type
+const sortNewsType = (news, type) => type === defaultType ? news : news.filter(value => value.type.toLowerCase() === type.toLowerCase());
+// Sort alphabetically (ascending or descending)
+const sortNewsTitle = (news, direction) => direction === "A-Z title" ? news.sort((a, b) => removeTags(a.title).localeCompare(removeTags(b.title))) : news.sort((a, b) => (-1) * removeTags(a.title).localeCompare(removeTags(b.title)));
 
 export {
     random,
+    removeTags,
     generateRandomColor,
     generateIcon,
-    sortNewsNewest,
-    sortNewsOldest,
-    sortNewsTitle,
-    sortNewsType
+    sortNewsDate,
+    sortNewsKeyword,
+    sortNewsType,
+    sortNewsTitle
 };

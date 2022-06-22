@@ -7,10 +7,7 @@
 				</div>
 				<h1 class="navbar__title">Expat Magazine</h1>
 			</div>
-			<NavbarFilter v-if="filterShown" />
-			<button v-else class="navbar__search" @click="() => (filterShown = true)">
-				Show filters <Icon class="icon" :icon="['fas', 'list']" />
-			</button>
+			<NavbarFilter />
 		</div>
 	</nav>
 </template>
@@ -28,11 +25,6 @@ export default {
 	components: {
 		Icon: FontAwesomeIcon,
 		NavbarFilter,
-	},
-	data() {
-		return {
-			filterShown: false,
-		};
 	},
 };
 </script>
