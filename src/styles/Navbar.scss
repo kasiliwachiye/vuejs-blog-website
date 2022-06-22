@@ -35,9 +35,26 @@
 	}
 
 	&__title {
+		@include no-select;
 		font-size: 2em;
 		margin-left: 10px;
 		color: $color-2;
-		@include no-select;
+	}
+
+	&__search {
+		@include transition;
+		padding: 10px 20px;
+		color: $color-2;
+		font-size: 1.3em;
+		cursor: pointer;
+		border: 1px rgba(0, 0, 0, 0.1) solid;
+		background: $color-1;
+		&:hover {
+			background: darken($color-1, 5%);
+		}
+		&:active {
+			background: darken($color-1, 10%);
+			color: black;
+		}
 	}
 }

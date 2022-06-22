@@ -4,25 +4,34 @@
 
 .navbar-filter {
 	@include flex-row(initial, center);
-
-	&__caption {
-		color: $color-2;
-		font-weight: bold;
-	}
+	background: $color-1;
+	padding: 5px 10px;
+	border-radius: 5px;
+	border: 1px rgba(0, 0, 0, 0.1) solid;
 
 	&__form {
 		@include flex-row(initial, center);
+		font-size: 0.9em;
 		.select,
 		.input {
-			padding: 10px 20px;
+			padding: 5px 10px;
 			border: none;
-			margin-left: 20px;
-			background: $color-1;
+			background: $color-4;
 			color: $color-2;
 		}
 		.input {
 			border: 1px rgba(0, 0, 0, 0.4) solid;
 			padding-right: 35px;
+		}
+		.group {
+			@include flex-col(initial, initial);
+			margin-left: 10px;
+		}
+		.label {
+			@include no-select;
+			margin-bottom: 5px;
+			font-weight: bold;
+			color: $color-2;
 		}
 	}
 

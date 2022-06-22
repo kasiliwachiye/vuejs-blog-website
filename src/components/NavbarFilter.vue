@@ -1,26 +1,47 @@
 <template>
 	<div class="navbar-filter">
-		<p class="navbar-filter__caption">Filter by:</p>
 		<form class="navbar-filter__form">
-			<select class="select" @change="(e) => update('order', e.target.value)">
-				<option v-for="(item, key) in dateOrderList" :key="key" :value="item">
-					{{ item }}
-				</option>
-			</select>
-			<select class="select" @change="(e) => update('type', e.target.value)">
-				<option v-for="(item, key) in getTypelist" :key="key" :value="item">
-					{{ item }}
-				</option>
-			</select>
-			<div class="navbar-filter__input">
-				<input class="input" type="text" placeholder="Search" v-model="str" />
-				<Icon v-if="str.length === 0" class="icon" :icon="['fas', 'search']" />
-				<Icon
-					v-else
-					class="icon icon--remove"
-					:icon="['fas', 'times-circle']"
-					@click.prevent="flushSearch"
-				/>
+			<div class="group">
+				<label class="label">
+					<Icon :icon="['fas', 'calendar-alt']" /> Date:
+				</label>
+				<select class="select" @change="(e) => update('order', e.target.value)">
+					<option v-for="(item, key) in dateOrderList" :key="key" :value="item">
+						{{ item }}
+					</option>
+				</select>
+			</div>
+			<div class="group">
+				<label class="label">
+					<Icon :icon="['fas', 'arrow-down-short-wide']" /> Type:
+				</label>
+				<select class="select" @change="(e) => update('type', e.target.value)">
+					<option v-for="(item, key) in getTypelist" :key="key" :value="item">
+						{{ item }}
+					</option>
+				</select>
+			</div>
+			<div class="group">
+				<label class="label">
+					<Icon :icon="['fas', 'arrow-down-a-z']" /> Order:
+				</label>
+				<select class="select" @change="(e) => update('type', e.target.value)">
+					<option v-for="(item, key) in getTypelist" :key="key" :value="item">
+						{{ item }}
+					</option>
+				</select>
+			</div>
+			<div class="group">
+				<label class="label"> <Icon :icon="['fas', 'search']" /> Search: </label>
+				<div class="navbar-filter__input">
+					<input class="input" type="text" placeholder="Keyword(s)" v-model="str" />
+					<Icon
+						v-if="str.length > 0"
+						class="icon icon--remove"
+						:icon="['fas', 'times-circle']"
+						@click.prevent="flushSearch"
+					/>
+				</div>
 			</div>
 		</form>
 	</div>

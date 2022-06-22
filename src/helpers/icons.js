@@ -13,7 +13,10 @@ import {
 	faLeaf,
 	faCalendarAlt,
 	faGears,
-	faStar
+	faStar,
+	faArrowDownAZ,
+	faArrowDownShortWide,
+	faList
 } from "@fortawesome/free-solid-svg-icons";
 
 /*
@@ -33,5 +36,8 @@ library.add(
 	faLeaf,
 	faCalendarAlt,
 	faGears,
-	faStar
+	faStar,
+	faArrowDownAZ,
+	faArrowDownShortWide,
+	faList
 );
