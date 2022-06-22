@@ -1,8 +1,10 @@
 <template>
 	<article class="news-card">
-		<figure class="news-card__image">
-			<img class="image" src="@/assets/test.jpg" alt="News representation" />
-		</figure>
+		<a class="link" :href="`/${id}`" :title="title">
+			<figure class="news-card__image">
+				<img class="image" src="@/assets/test.jpg" alt="News representation" />
+			</figure>
+		</a>
 		<div class="news-card__tag" :style="{ background: color }">
 			<Icon :icon="['fas', icon]" /> {{ type }}
 		</div>
