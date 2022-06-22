@@ -1,15 +1,15 @@
 <template>
 	<div class="news-list container">
 		<ul class="news-list__list">
-			<li v-for="(item, key) in newsList" :key="key">
+			<li v-for="(item, key) in news" :key="key">
 				<NewsCard
 					:id="item.id"
 					:title="item.title"
 					:description="item.introduction"
 					:type="item.type"
 					:date="item.date"
-					:color="typeColor[item.type]"
-					:icon="typeIcon[item.type]"
+					:color="color[item.type]"
+					:icon="icon[item.type]"
 				/>
 			</li>
 		</ul>
@@ -31,23 +31,24 @@ export default {
 	},
 	data() {
 		return {
-			newsList: [],
-			typeColor: {},
-			typeIcon: {},
+			news: [],
+			color: {},
+			icon: {},
 		};
 	},
 	created() {
 		http
-			.get("newsList")
+			.get("news")
 			.then((result) => {
-				result.forEach((news) => {
-					if (!this.typeColor[news.type])
-						this.typeColor[news.type] = this.generateRandomColor();
-					if (!this.typeIcon[news.type])
-						this.typeIcon[news.type] = this.generateIcon();
-					this.newsList.push(news);
+				result.forEach((item) => {
+					if (!this.color[item.type])
+						this.color[item.type] = this.generateRandomColor();
+					if (!this.icon[item.type]) this.icon[item.type] = this.generateIcon();
+					this.news.push(item);
 				});
-				this.newsList = [...result];
+				localStorage.setItem("color", JSON.stringify(this.color));
+				localStorage.setItem("icon", JSON.stringify(this.icon));
+				localStorage.setItem("news", JSON.stringify(this.news));
 			})
 			.catch((err) => console.error(err));
 	},

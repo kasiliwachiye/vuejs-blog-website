@@ -3,7 +3,7 @@
 */
 
 const ws = {
-	newsList: "news.json",
+	news: "news.json",
 };
 
 export default ws;
