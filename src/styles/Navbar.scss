@@ -1,3 +1,37 @@
 /*
     Navbar styles
 */
+
+.navbar {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	height: $navbar-height;
+	overflow: hidden;
+	background: white;
+	box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+	@include flex-row(start, center);
+
+	&__container {
+		align-items: center;
+	}
+
+	&__icon-box {
+		$icon-size: calc($navbar-height - 20px);
+		@include flex-row(center, center);
+		border: 1px rgba(0, 0, 0, 0.4) solid;
+		border-radius: 50%;
+		width: $icon-size;
+		height: $icon-size;
+		font-size: 1.9em;
+		color: $color-2;
+		background: $color-1;
+	}
+
+	&__title {
+		font-size: 2em;
+		margin-left: 10px;
+		color: $color-2;
+		@include no-select;
+	}
+}
