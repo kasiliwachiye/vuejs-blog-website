@@ -19,6 +19,9 @@ const generateIcon = () => {
 // Removes HTML tags in a string
 const removeTags = (str) => str.replace(/(<([^>]+)>)/ig, "");
 
+// Converts [YYYY-MM-DD HH:mm:ss] to timestamp
+const toTimestamp = (date) => Math.floor(new Date(date.replace(" ", "T")).getTime() / 1000);
+
 // Sort news by newest or oldest date
 // const sortNewsDate = (news, direction) => direction === "Newest article" ? news.sort((a, b) => a.timestamp - b.timestamp) : news.sort((a, b) => b.timestamp - a.timestamp);
 const sortNewsDate = (news, direction) => direction === "Newest article" ? news.sort((a, b) => a.timestamp - b.timestamp) : news.sort((a, b) => b.timestamp - a.timestamp);
@@ -32,6 +35,7 @@ const sortNewsTitle = (news, direction) => direction === "A-Z title" ? news.sort
 export {
     random,
     removeTags,
+    toTimestamp,
     generateRandomColor,
     generateIcon,
     sortNewsDate,

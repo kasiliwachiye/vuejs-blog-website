@@ -23,8 +23,10 @@ export default {
 		NewsList,
 		SocialArea,
 	},
+	// Get store actions
 	methods: { ...mapActions(["getNews"]) },
 	created() {
+		// Fetch news on component creation
 		this.getNews();
 	},
 };

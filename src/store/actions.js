@@ -1,3 +1,4 @@
+import { toTimestamp } from "@/helpers/utils";
 import http from "@/service/http.js";
 
 /*
@@ -13,7 +14,7 @@ const actions = {
             .then((news) => {
                 news = news.map((item) => {
                     // Save news item timestamp for later date sort
-                    item.timestamp = Math.floor(new Date(item.date.replace(" ", "T")).getTime() / 1000);
+                    item.timestamp = toTimestamp(item.date);
                     // Add current news type to store
                     commit("addType", item.type);
                     return item;

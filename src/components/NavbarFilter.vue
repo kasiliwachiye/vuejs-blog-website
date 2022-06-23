@@ -1,6 +1,7 @@
 <template>
 	<div :class="`navbar-filter ${trigger ? 'navbar-filter--shown' : ''}`">
 		<form class="navbar-filter__form">
+			<!-- Article order -->
 			<div class="group">
 				<label class="label">
 					<Icon :icon="['fas', 'arrow-down-a-z']" /> Order by:
@@ -19,6 +20,7 @@
 					</option>
 				</select>
 			</div>
+			<!-- Article type -->
 			<div class="group">
 				<label class="label">
 					<Icon :icon="['fas', 'arrow-down-short-wide']" /> Type:
@@ -34,6 +36,7 @@
 					</option>
 				</select>
 			</div>
+			<!-- Article keyword search -->
 			<div class="group">
 				<label class="label"> <Icon :icon="['fas', 'search']" /> Search: </label>
 				<div class="navbar-filter__input">
@@ -64,10 +67,10 @@ import {
 	sortNewsKeyword,
 	sortNewsTitle,
 } from "@/helpers/utils";
-import { defaultType } from "@/helpers/const";
+import { defaultType, dateOrderList, titleOrderList } from "@/helpers/const";
 
 /*
-    Navigation and filter
+    Filters
 */
 
 export default {
@@ -82,18 +85,17 @@ export default {
 		},
 	},
 	data() {
-		const dateOrder = ["Newest article", "Oldest article"];
-		const titleOrder = ["A-Z title", "Z-A title"];
 		return {
-			dateOrder,
-			titleOrder,
-			orderList: [...dateOrder, ...titleOrder],
-			order: dateOrder[0],
+			dateOrder: [...dateOrderList],
+			titleOrder: [...titleOrderList],
+			orderList: [...dateOrderList, ...titleOrderList],
+			order: dateOrderList[0],
 			type: defaultType,
 			search: "",
 		};
 	},
 	methods: {
+		// Get store actions
 		...mapActions(["updateFilteredNews"]),
 		// Flush keyword search bar
 		flushSearch() {
@@ -103,28 +105,35 @@ export default {
 		updateField(field, data) {
 			if (field === "type") this.type = data;
 			else if (field === "order") this.order = data;
+			// Apply these filters
 			this.filterNews();
 		},
 		// Sort news list
 		filterNews() {
 			let filtered = [...this.news];
+			// Keyword sort
 			if (this.search.length > 0)
 				filtered = sortNewsKeyword(filtered, this.search);
+			// News type sort
 			filtered = sortNewsType(filtered, this.type);
-			// Select an order (by date or title)
+			// Order date sort
 			if (this.dateOrder.includes(this.order))
 				filtered = sortNewsDate(filtered, this.order);
+			// Order title sort
 			else if (this.titleOrder.includes(this.order))
 				filtered = sortNewsTitle(filtered, this.order);
-			// Update
+			// Update store
 			this.updateFilteredNews(filtered);
 		},
 	},
+	// Store variables that will be used here
 	computed: mapGetters(["types", "news", "filteredNews"]),
 	watch: {
+		// On search keyword update, apply all filters
 		search() {
 			this.filterNews();
 		},
+		// When news are done fetching, apply filters
 		news() {
 			if (this.news.length > 0) this.filterNews();
 		},
