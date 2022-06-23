@@ -47,7 +47,7 @@ export default {
 		Icon: FontAwesomeIcon,
 		LoadingSpinner,
 	},
-	// Store variables we use here
+	// Get store variables we use here
 	computed: mapGetters(["news", "filteredNews", "types"]),
 };
 </script>

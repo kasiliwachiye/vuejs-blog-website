@@ -1,4 +1,5 @@
 import Home from "@/views/Home.vue";
+import ArticleDisplay from "@/views/ArticleDisplay.vue";
 
 /*
     Export our routes
@@ -10,11 +11,11 @@ const routes = [
         name: "Home",
         component: Home,
     },
-    /* {
-        path: "/*",
-        name: "Secret",
-        component: AppError,
-    }, */
+    {
+        path: "/article/:id",
+        name: "Article",
+        component: ArticleDisplay,
+    },
 ];
 
 export default routes;

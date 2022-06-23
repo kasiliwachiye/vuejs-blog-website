@@ -3,7 +3,7 @@
 		<!-- Representation image -->
 		<a class="link" :href="`/${id}`" :title="title">
 			<figure class="news-card__image">
-				<img class="image" v-lazy="'/assets/test.jpg'" :alt="title" />
+				<img class="image" v-lazy="'/assets/test.webp'" :alt="title" />
 			</figure>
 		</a>
 		<!-- Article type -->

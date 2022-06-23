@@ -6,7 +6,7 @@
 import NewsList from "@/components/NewsList.vue";
 
 /*
-	Main app entry
+	Home
 */
 
 export default {

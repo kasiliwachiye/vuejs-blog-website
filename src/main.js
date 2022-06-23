@@ -22,7 +22,7 @@ Vue.use(VueLazyLoad, {
 const router = new VueRouter({
 	routes,
 	linkActiveClass: "active",
-	mode: "history",
+	mode: "history"
 });
 
 new Vue({

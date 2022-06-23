@@ -4,6 +4,7 @@
 		<div class="container">
 			<router-view>
 				<router-link to="/"> Home </router-link>
+				<router-link to="/article"> ArticleDisplay </router-link>
 			</router-view>
 		</div>
 		<SocialArea />
