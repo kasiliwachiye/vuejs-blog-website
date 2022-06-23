@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapActions, mapGetters } from "vuex";
 import LoadingSpinner from "@/components/LoadingSpinner.vue";
 
 /*
@@ -31,6 +31,8 @@ export default {
 	},
 	// Get store actions
 	methods: { ...mapActions(["getNews"]) },
+	// Get store variable
+	computed: mapGetters(["news"]),
 	created() {
 		setTimeout(() => {
 			// Fetch news if not done yet

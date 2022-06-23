@@ -9,9 +9,10 @@
 				<h1 class="navbar__title">Expat Magazine</h1>
 			</div>
 			<!-- Filters -->
-			<NavbarFilter :trigger="triggerOn" />
+			<NavbarFilter v-if="news" :trigger="triggerOn" />
 			<!-- Show filter button (mobile only) -->
 			<button
+				v-if="news"
 				class="navbar__trigger"
 				title="Toggle filters"
 				@click="triggerSwitch"
@@ -23,6 +24,7 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import NavbarFilter from "@/components/NavbarFilter.vue";
 
@@ -46,5 +48,6 @@ export default {
 			this.triggerOn = !this.triggerOn;
 		},
 	},
+	computed: mapGetters(["news"]),
 };
 </script>

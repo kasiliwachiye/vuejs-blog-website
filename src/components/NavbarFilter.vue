@@ -94,6 +94,9 @@ export default {
 			search: "",
 		};
 	},
+	created() {
+		if (this.news.length > 0) this.filterNews();
+	},
 	methods: {
 		// Get store actions
 		...mapActions(["updateFilteredNews"]),
@@ -132,10 +135,6 @@ export default {
 		// On search keyword update, apply all filters
 		search() {
 			this.filterNews();
-		},
-		// When news are done fetching, apply filters
-		news() {
-			if (this.news.length > 0) this.filterNews();
 		},
 	},
 };
