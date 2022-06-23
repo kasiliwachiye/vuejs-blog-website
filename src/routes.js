@@ -1,4 +1,4 @@
-import Home from "@/views/Home.vue";
+import App from "@/views/App.vue";
 import ArticleDisplay from "@/views/ArticleDisplay.vue";
 
 /*
@@ -8,12 +8,12 @@ import ArticleDisplay from "@/views/ArticleDisplay.vue";
 const routes = [
     {
         path: "/",
-        name: "Home",
-        component: Home,
+        name: "App",
+        component: App,
     },
     {
         path: "/article/:id",
-        name: "Article",
+        name: "ArticleDisplay",
         component: ArticleDisplay,
     },
 ];

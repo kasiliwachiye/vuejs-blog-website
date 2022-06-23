@@ -10,15 +10,13 @@
 			<p class="article-display__intro" v-html="processDescription()"></p>
 			<p class="article-display__body" v-html="processBody()"></p>
 		</div>
-		<div v-else class="article-display__loading">
-			<LoadingSpinner />
-		</div>
+		<LoadingNews :id="id" @finish="finishedLoading" />
 	</div>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
-import LoadingSpinner from "@/components/LoadingSpinner.vue";
+import LoadingNews from "@/components/LoadingNews.vue";
 
 /*
 	Article page
@@ -27,28 +25,32 @@ import LoadingSpinner from "@/components/LoadingSpinner.vue";
 export default {
 	name: "ArticleDisplay",
 	components: {
-		LoadingSpinner,
+		LoadingNews,
 	},
 	data() {
 		return {
 			article: null,
+			id: this.$route.params.id,
 		};
 	},
 	// Get store variables we use here
 	computed: mapGetters(["news"]),
 	watch: {
-		news() {
-			if (this.news.length > 0) {
-				const id = this.$route.params.id;
-				for (let i = 0; i < this.news.length; i++)
-					if (this.news[i].id === parseInt(id)) {
-						this.article = { ...this.news[i] };
-						break;
-					}
-			}
-		},
+		// news() {
+		// 	if (this.news.length > 0) {
+		// 		const id = this.$route.params.id;
+		// 		for (let i = 0; i < this.news.length; i++)
+		// 			if (this.news[i].id === parseInt(id)) {
+		// 				this.article = { ...this.news[i] };
+		// 				break;
+		// 			}
+		// 	}
+		// },
 	},
 	methods: {
+		finishedLoading(article) {
+			console.log(article);
+		},
 		// Remove p tag because parent is already a p tag
 		processDescription() {
 			return this.article.introduction.replace("<p>", "").replace("</p>", "");
