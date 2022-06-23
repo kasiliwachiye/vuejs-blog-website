@@ -34,12 +34,12 @@
 
 	&__image {
 		@include flex-row(center, center);
+		min-height: 120px;
 		box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 		background: $color-3;
 		.image {
 			width: 100%;
 			object-fit: fill;
-			@include transition;
 		}
 	}
 
