@@ -1,5 +1,5 @@
 <template>
-	<div class="news-list container">
+	<div class="news-list">
 		<!-- Filtered news card list -->
 		<ul v-if="filteredNews.length > 0" class="news-list__list">
 			<li v-for="(value, key) in filteredNews" :key="key">

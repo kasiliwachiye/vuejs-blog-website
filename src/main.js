@@ -6,7 +6,6 @@ import store from "@/store";
 import VueLazyLoad from "vue-lazyload";
 import routes from "./routes.js";
 import App from "@/layouts/App.vue";
-import Fragment from "vue-fragment";
 
 /*
 	Entry point
@@ -19,7 +18,6 @@ Vue.use(VueLazyLoad, {
 	loading: "/assets/loading.gif",
 	error: "/assets/error.jpg"
 });
-Vue.use(Fragment.Plugin);
 
 const router = new VueRouter({
 	routes,

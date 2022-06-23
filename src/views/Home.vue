@@ -1,7 +1,5 @@
 <template>
-	<fragment>
-		<NewsList />
-	</fragment>
+	<NewsList />
 </template>
 
 <script>
