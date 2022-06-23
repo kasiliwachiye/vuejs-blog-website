@@ -34,10 +34,8 @@ export default {
 	// Get store variable
 	computed: mapGetters(["news"]),
 	created() {
-		setTimeout(() => {
-			// Fetch news if not done yet
-			if (!this.news || this.news.length === 0) this.getNews();
-		}, 2000);
+		// Fetch news if not done yet
+		if (!this.news || this.news.length === 0) this.getNews();
 	},
 	watch: {
 		// Finished fetching news

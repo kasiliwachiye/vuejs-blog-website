@@ -12,7 +12,7 @@
 			<NavbarFilter v-if="news && $route.name === 'App'" :trigger="triggerOn" />
 			<!-- Show filter button (mobile only) -->
 			<button
-				v-if="news"
+				v-if="news && $route.name === 'App'"
 				class="navbar__trigger"
 				title="Toggle filters"
 				@click="triggerSwitch"
