@@ -14,6 +14,10 @@
 				/>
 			</li>
 		</ul>
+		<div v-else-if="news.length === 0" class="news-list__loading">
+			<LoadingSpinner />
+			<p class="caption">Please wait...</p>
+		</div>
 		<div v-else class="news-list__empty">
 			<div class="box">
 				<Icon class="icon" :icon="['fas', 'warning']" />
@@ -27,6 +31,7 @@
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { mapGetters } from "vuex";
 import NewsCard from "@/components/NewsCard.vue";
+import LoadingSpinner from "@/components/LoadingSpinner.vue";
 
 /*
     Displays news list according to current filters
@@ -37,7 +42,8 @@ export default {
 	components: {
 		NewsCard,
 		Icon: FontAwesomeIcon,
+		LoadingSpinner,
 	},
-	computed: mapGetters(["filteredNews", "types"]),
+	computed: mapGetters(["news", "filteredNews", "types"]),
 };
 </script>
