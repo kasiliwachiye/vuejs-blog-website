@@ -15,18 +15,15 @@
 				/>
 			</li>
 		</ul>
-		<!-- Loading spinner when news not done fetching -->
-		<div v-else-if="news.length === 0" class="news-list__loading">
-			<LoadingSpinner />
-			<p class="caption">Please wait...</p>
-		</div>
 		<!-- When no articles meet the selected filters -->
-		<div v-else class="news-list__empty">
+		<div v-if="news && filteredNews.length === 0" class="news-list__empty">
 			<div class="box">
 				<Icon class="icon" :icon="['fas', 'warning']" />
 				<p class="caption">No articles</p>
 			</div>
 		</div>
+		<!-- Loading news list -->
+		<LoadingNews />
 	</div>
 </template>
 
@@ -34,7 +31,7 @@
 import { mapGetters } from "vuex";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import NewsCard from "@/components/NewsCard.vue";
-import LoadingSpinner from "@/components/LoadingSpinner.vue";
+import LoadingNews from "@/components/LoadingNews.vue";
 
 /*
     Displays news list according to applied filters
@@ -45,7 +42,7 @@ export default {
 	components: {
 		NewsCard,
 		Icon: FontAwesomeIcon,
-		LoadingSpinner,
+		LoadingNews,
 	},
 	// Get store variables we use here
 	computed: mapGetters(["news", "filteredNews", "types"]),

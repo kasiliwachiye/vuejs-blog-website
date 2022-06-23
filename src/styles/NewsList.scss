@@ -52,14 +52,4 @@
 			padding-top: 10px;
 		}
 	}
-
-	&__loading {
-		@include flex-col(center, center);
-		min-height: calc(100vh - $navbar-height);
-		.caption {
-			color: $color-3;
-			padding-top: 20px;
-			font-weight: bold;
-		}
-	}
 }

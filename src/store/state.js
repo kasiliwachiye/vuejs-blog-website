@@ -6,7 +6,7 @@ import { defaultType } from "@/helpers/const";
 
 const state = {
     // Store news list
-    news: [],
+    news: null,
     // Store news types (name/color/icon)
     types: {
         [defaultType]: {}

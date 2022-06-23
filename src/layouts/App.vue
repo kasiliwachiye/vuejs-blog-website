@@ -12,7 +12,6 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
 import SocialArea from "@/components/SocialArea.vue";
 import Navbar from "@/components/Navbar.vue";
 
@@ -20,14 +19,6 @@ export default {
 	components: {
 		Navbar,
 		SocialArea,
-	},
-	// Get store actions
-	methods: { ...mapActions(["getNews"]) },
-	created() {
-		// Fetch news on component creation
-		setTimeout(() => {
-			this.getNews();
-		}, 2000);
 	},
 };
 </script>

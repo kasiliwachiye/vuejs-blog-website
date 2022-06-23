@@ -1,0 +1,17 @@
+/*
+    Loading styles
+*/
+
+.loading-news {
+	@include flex-col(center, center);
+
+	&--finished {
+		display: none;
+	}
+
+	&__caption {
+		color: $color-3;
+		padding-top: 20px;
+		font-weight: bold;
+	}
+}
