@@ -1,33 +1,32 @@
 <template>
-	<div id="app">
+	<div id="home">
 		<Navbar />
-		<NewsList />
+		<div class="container">
+			<router-view>
+				<router-link to="/"> Home </router-link>
+			</router-view>
+		</div>
 		<SocialArea />
 	</div>
 </template>
 
 <script>
 import { mapActions } from "vuex";
-import Navbar from "@/components/Navbar.vue";
-import NewsList from "@/components/NewsList.vue";
 import SocialArea from "@/components/SocialArea.vue";
-
-/*
-	Main app entry
-*/
+import Navbar from "@/components/Navbar.vue";
 
 export default {
-	name: "App",
 	components: {
 		Navbar,
-		NewsList,
 		SocialArea,
 	},
 	// Get store actions
 	methods: { ...mapActions(["getNews"]) },
 	created() {
 		// Fetch news on component creation
-		this.getNews();
+		setTimeout(() => {
+			this.getNews();
+		}, 2000);
 	},
 };
 </script>
