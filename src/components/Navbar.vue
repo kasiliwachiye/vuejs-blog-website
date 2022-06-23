@@ -9,7 +9,7 @@
 				<h1 class="navbar__title">Expat Magazine</h1>
 			</div>
 			<!-- Filters -->
-			<NavbarFilter v-if="news" :trigger="triggerOn" />
+			<NavbarFilter v-if="news && $route.name === 'App'" :trigger="triggerOn" />
 			<!-- Show filter button (mobile only) -->
 			<button
 				v-if="news"
