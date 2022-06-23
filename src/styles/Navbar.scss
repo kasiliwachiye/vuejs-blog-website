@@ -3,6 +3,7 @@
 */
 
 .navbar {
+	@include flex-row(start, center);
 	position: fixed;
 	top: 0;
 	z-index: 13;
@@ -10,7 +11,6 @@
 	height: $navbar-height;
 	background: white;
 	box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
-	@include flex-row(start, center);
 
 	&__container {
 		align-items: center;
@@ -32,6 +32,11 @@
 		font-size: 1.9em;
 		color: $color-2;
 		background: $color-1;
+		@include screen-x(500px) {
+			font-size: 1.2em;
+			width: 40px;
+			height: 40px;
+		}
 	}
 
 	&__title {
@@ -39,6 +44,9 @@
 		font-size: 2em;
 		margin-left: 10px;
 		color: $color-2;
+		@include screen-x(500px) {
+			font-size: 1.5em;
+		}
 	}
 
 	&__search {
@@ -55,6 +63,25 @@
 		&:active {
 			background: darken($color-1, 10%);
 			color: black;
+		}
+	}
+
+	&__trigger {
+		@include transition;
+		display: none;
+		cursor: pointer;
+		width: 50px;
+		height: 50px;
+		border-radius: 50%;
+		border: 1px rgba(0, 0, 0, 0.4) solid;
+		font-size: 1.7em;
+		overflow: hidden;
+		color: $color-2;
+		&:active {
+			font-size: 0.5em;
+		}
+		@include screen-x(900px) {
+			@include flex-row(center, center);
 		}
 	}
 }

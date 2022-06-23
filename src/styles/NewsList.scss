@@ -3,7 +3,7 @@
 */
 
 .news-list {
-	@include flex-col(center, center);
+	@include flex-col(initial, initial);
 	min-height: calc(100vh - $navbar-height);
 
 	&__list {
@@ -32,13 +32,17 @@
 
 	&__empty {
 		@include flex-col(center, center);
-		color: $color-5;
-		width: 220px;
-		height: 220px;
-		overflow: hidden;
-		border-radius: 50%;
-		border: 1px $color-5 solid;
-		background: white;
+		min-height: calc(100vh - $navbar-height);
+		.box {
+			@include flex-col(center, center);
+			color: $color-5;
+			width: 220px;
+			height: 220px;
+			overflow: hidden;
+			border-radius: 50%;
+			border: 1px $color-5 solid;
+			background: white;
+		}
 		.icon {
 			font-size: 5em;
 		}

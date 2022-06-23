@@ -7,7 +7,14 @@
 				</div>
 				<h1 class="navbar__title">Expat Magazine</h1>
 			</div>
-			<NavbarFilter />
+			<NavbarFilter :trigger="triggerOn" />
+			<button
+				class="navbar__trigger"
+				title="Toggle filters"
+				@click="triggerSwitch"
+			>
+				<Icon class="icon" :icon="['fas', 'bars']" />
+			</button>
 		</div>
 	</nav>
 </template>
@@ -25,6 +32,16 @@ export default {
 	components: {
 		Icon: FontAwesomeIcon,
 		NavbarFilter,
+	},
+	data() {
+		return {
+			triggerOn: false,
+		};
+	},
+	methods: {
+		triggerSwitch() {
+			this.triggerOn = !this.triggerOn;
+		},
 	},
 };
 </script>

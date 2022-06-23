@@ -1,5 +1,5 @@
 <template>
-	<div class="navbar-filter">
+	<div :class="`navbar-filter ${trigger ? 'navbar-filter--shown' : ''}`">
 		<form class="navbar-filter__form">
 			<div class="group">
 				<label class="label">
@@ -75,6 +75,12 @@ export default {
 	components: {
 		Icon: FontAwesomeIcon,
 	},
+	props: {
+		trigger: {
+			type: Boolean,
+			require: false,
+		},
+	},
 	data() {
 		const dateOrder = ["Newest article", "Oldest article"];
 		const titleOrder = ["A-Z title", "Z-A title"];
@@ -121,7 +127,6 @@ export default {
 		},
 		news() {
 			if (this.news.length > 0) this.filterNews();
-			console.log(this.types);
 		},
 	},
 };

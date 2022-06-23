@@ -15,15 +15,17 @@
 			</li>
 		</ul>
 		<div v-else class="news-list__empty">
-			<Icon class="icon" :icon="['fas', 'warning']" />
-			<p class="caption">No articles</p>
+			<div class="box">
+				<Icon class="icon" :icon="['fas', 'warning']" />
+				<p class="caption">No articles</p>
+			</div>
 		</div>
 	</div>
 </template>
 
 <script>
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import { mapActions, mapGetters } from "vuex";
+import { mapGetters } from "vuex";
 import NewsCard from "@/components/NewsCard.vue";
 
 /*
@@ -35,12 +37,6 @@ export default {
 	components: {
 		NewsCard,
 		Icon: FontAwesomeIcon,
-	},
-	created() {
-		this.getNews();
-	},
-	methods: {
-		...mapActions(["getNews"]),
 	},
 	computed: mapGetters(["filteredNews", "types"]),
 };

@@ -7,6 +7,7 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
 import Navbar from "@/components/Navbar.vue";
 import NewsList from "@/components/NewsList.vue";
 import SocialArea from "@/components/SocialArea.vue";
@@ -22,8 +23,9 @@ export default {
 		NewsList,
 		SocialArea,
 	},
-	data() {
-		return {};
+	methods: { ...mapActions(["getNews"]) },
+	created() {
+		this.getNews();
 	},
 };
 </script>
