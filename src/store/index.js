@@ -1,6 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import newsModule from "@/store/newsModule";
+import store from "@/store/store";
 
 /*
     VueX store
@@ -13,6 +13,6 @@ export default new Vuex.Store({
     mutations: {},
     actions: {},
     modules: {
-        newsModule
+        store
     }
 });
