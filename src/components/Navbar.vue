@@ -2,12 +2,12 @@
 	<nav class="navbar">
 		<div class="navbar__container container">
 			<!-- Title -->
-			<div class="navbar__head">
+			<a class="navbar__head" href="/" title="Back to home">
 				<div class="navbar__icon-box">
 					<Icon class="icon" :icon="['fas', 'newspaper']" />
 				</div>
 				<h1 class="navbar__title">Expat Magazine</h1>
-			</div>
+			</a>
 			<!-- Filters -->
 			<NavbarFilter v-if="news && $route.name === 'App'" :trigger="triggerOn" />
 			<!-- Show filter button (mobile only) -->
