@@ -4,6 +4,7 @@
 
 .news-list {
 	@include flex-col(initial, initial);
+	width: 100%;
 	min-height: calc(100vh - $navbar-height);
 
 	&__list {

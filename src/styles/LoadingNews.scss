@@ -4,6 +4,9 @@
 
 .loading-news {
 	@include flex-col(center, center);
+	width: 100%;
+	min-height: calc(100vh - $navbar-height * 2);
+	padding-top: $navbar-height;
 
 	&--finished {
 		display: none;

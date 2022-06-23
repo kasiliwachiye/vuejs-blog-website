@@ -35,7 +35,7 @@ export default {
 		setTimeout(() => {
 			// Fetch news if not done yet
 			if (!this.news || this.news.length === 0) this.getNews();
-		}, 9990);
+		}, 2000);
 	},
 	watch: {
 		// Finished fetching news
