@@ -13,8 +13,8 @@
 	overflow: hidden;
 	position: relative;
 
-	@include screen-x(400px) {
-		height: 420px;
+	@include screen-x(600px) {
+		height: 460px;
 	}
 
 	&__image {
@@ -23,9 +23,24 @@
 		overflow: hidden;
 		box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 		background: $color-3;
+		@include screen-x(1000px) {
+			height: 120px;
+		}
+		@include screen-x(700px) {
+			height: 140px;
+		}
+		@include screen-x(600px) {
+			height: 230px;
+		}
+		@include screen-x(400px) {
+			height: 180px;
+		}
 		.image {
 			width: 100%;
 			@include transition;
+			@include screen-x(500px) {
+				height: 100%;
+			}
 		}
 	}
 
@@ -98,8 +113,32 @@
 		right: 10px;
 		top: 115px;
 		padding-top: 5px;
-		color: rgb(192, 192, 192);
+		color: rgb(210, 210, 210);
 		text-shadow: 0px 1px 3px black;
 		font-size: 0.9em;
+	}
+	@include screen-x(1000px) {
+		&__tag,
+		&__date {
+			top: 90px;
+		}
+	}
+	@include screen-x(700px) {
+		&__tag,
+		&__date {
+			top: 110px;
+		}
+	}
+	@include screen-x(600px) {
+		&__tag,
+		&__date {
+			top: 190px;
+		}
+	}
+	@include screen-x(400px) {
+		&__tag,
+		&__date {
+			top: 150px;
+		}
 	}
 }
