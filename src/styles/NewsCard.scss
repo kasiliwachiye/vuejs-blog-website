@@ -46,6 +46,7 @@
 	&__tag {
 		@include no-select;
 		position: absolute;
+		z-index: 1;
 		left: 10px;
 		bottom: 10px;
 		padding: 5px 10px;
@@ -111,6 +112,7 @@
 	&__date {
 		@include no-select;
 		position: absolute;
+		z-index: 1;
 		right: 10px;
 		bottom: 10px;
 		padding-top: 5px;
