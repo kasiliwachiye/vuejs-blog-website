@@ -1,19 +1,20 @@
 <template>
 	<article class="news-card">
 		<!-- Representation image -->
-		<a class="link" :href="`/${id}`" :title="title">
+		<a class="news-card__link" :href="`/${id}`" :title="title">
 			<figure class="news-card__image">
-				<img class="image" v-lazy="'/assets/test.webp'" :alt="title" />
+				<img class="image" v-lazy="image" :alt="title" />
 			</figure>
+			<!-- Article type -->
+			<div class="news-card__tag" :style="{ background: color }">
+				<Icon :icon="['fas', icon]" /> {{ type }}
+			</div>
+			<!-- Release date -->
+			<div class="news-card__date">
+				<Icon :icon="['fas', 'calendar-alt']" /> <span>{{ processDate() }}</span>
+			</div>
+			<div class="news-card__overlay"></div>
 		</a>
-		<!-- Article type -->
-		<div class="news-card__tag" :style="{ background: color }">
-			<Icon :icon="['fas', icon]" /> {{ type }}
-		</div>
-		<!-- Release date -->
-		<div class="news-card__date">
-			<Icon :icon="['fas', 'calendar-alt']" /> <span>{{ processDate() }}</span>
-		</div>
 		<!-- Title -->
 		<h2 class="news-card__title">
 			<a class="link" :href="`/${id}`" :title="title">{{ processTitle() }}</a>
