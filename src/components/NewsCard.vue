@@ -1,7 +1,7 @@
 <template>
 	<article class="news-card">
 		<!-- Representation image -->
-		<a class="news-card__link" :href="`/${id}`" :title="title">
+		<a class="news-card__link" :href="`/article/${id}`" :title="title">
 			<figure class="news-card__image">
 				<img class="image" v-lazy="image" :alt="title" />
 			</figure>
@@ -17,7 +17,7 @@
 		</a>
 		<!-- Title -->
 		<h2 class="news-card__title">
-			<a class="link" :href="`/${id}`" :title="title">{{ this.title }}</a>
+			<a class="link" :href="`/article/${id}`" :title="title">{{ this.title }}</a>
 		</h2>
 		<div class="news-card__separator"></div>
 		<!-- Introduction -->
