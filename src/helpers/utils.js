@@ -23,14 +23,25 @@ const removeTags = (str) => str.replace(/(<([^>]+)>)/ig, "");
 const toTimestamp = (date) => Math.floor(new Date(date.replace(" ", "T")).getTime() / 1000);
 
 // Sort news by newest or oldest date
-// const sortNewsDate = (news, direction) => direction === "Newest article" ? news.sort((a, b) => a.timestamp - b.timestamp) : news.sort((a, b) => b.timestamp - a.timestamp);
 const sortNewsDate = (news, direction) => direction === "Newest article" ? news.sort((a, b) => a.timestamp - b.timestamp) : news.sort((a, b) => b.timestamp - a.timestamp);
+
 // Sort news by keywords
 const sortNewsKeyword = (news, keyword) => news.filter(value => value.title.match(new RegExp(keyword, "gi")) || value.introduction.match(new RegExp(keyword, "gi")) || value.body.match(new RegExp(keyword, "gi")));
+
 // Sort news by type
 const sortNewsType = (news, type) => type === defaultType ? news : news.filter(value => value.type.toLowerCase() === type.toLowerCase());
+
 // Sort alphabetically (ascending or descending)
 const sortNewsTitle = (news, direction) => direction === "A-Z title" ? news.sort((a, b) => removeTags(a.title).localeCompare(removeTags(b.title))) : news.sort((a, b) => (-1) * removeTags(a.title).localeCompare(removeTags(b.title)));
+
+// Extracts date from article datetime
+const extractDate = (date) => date.split(" ")[0].split("-").reverse().join("-");
+
+// Extract body content of article
+const extractBody = (body) => new RegExp(/<body[^>]*>([\w|\W]*)<\/body>/im).exec(body)[0].replace(/<body[^>]*>/im, "").replace(/<\/body>/im, "");
+
+// Extract description content from article introduction
+const extractDescription = (intro) => intro.replace(/<p[^>]*>/im, "").replace(/<\/p>/im, "");
 
 export {
     random,
@@ -41,5 +52,8 @@ export {
     sortNewsDate,
     sortNewsKeyword,
     sortNewsType,
-    sortNewsTitle
+    sortNewsTitle,
+    extractDate,
+    extractBody,
+    extractDescription
 };
