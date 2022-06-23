@@ -1,12 +1,10 @@
 import axios from "axios";
 import ws from "@/service/ws";
-import { baseUrl } from "@/helpers/const.js";
+import { baseUrl, requestHeaders } from "@/helpers/const.js";
 
-// Default headers
-const headers = {
-	Accept: "application/json",
-	"Content-Type": "application/json",
-};
+/*
+	Service for API requests
+*/
 
 const http = {
 	get: (endpoint = null, data = null) => {
@@ -15,7 +13,7 @@ const http = {
 				axios
 					.get(`${baseUrl}/${ws[endpoint]}`, {
 						params: data,
-						headers,
+						headers: requestHeaders,
 					})
 					.then(({ data }) => resolve(data))
 					.catch((e) => reject(e?.response?.data?.errors[0]?.message));
