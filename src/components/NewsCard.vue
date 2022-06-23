@@ -17,7 +17,7 @@
 		</a>
 		<!-- Title -->
 		<h2 class="news-card__title">
-			<a class="link" :href="`/${id}`" :title="title">{{ processTitle() }}</a>
+			<a class="link" :href="`/${id}`" :title="title">{{ this.title }}</a>
 		</h2>
 		<div class="news-card__separator"></div>
 		<!-- Introduction -->
@@ -27,6 +27,7 @@
 
 <script>
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import { extractDescription, extractDate } from "@/helpers/utils.js";
 
 /*
     Displays a news in a card
@@ -72,17 +73,13 @@ export default {
 		},
 	},
 	methods: {
-		// Remove p tag because parent is already a p tag
+		// Extract description content
 		processDescription() {
-			return this.description.replace("<p>", "").replace("</p>", "");
-		},
-		// Adjust spacing
-		processTitle() {
-			return this.title.replace("?", " ?").replace("!", " !");
+			return extractDescription(this.description);
 		},
 		// Only display date, not time
 		processDate() {
-			return this.date.split(" ")[0].split("-").reverse().join("-");
+			return extractDate(this.date);
 		},
 	},
 };
