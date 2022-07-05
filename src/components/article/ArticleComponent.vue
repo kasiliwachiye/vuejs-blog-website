@@ -3,7 +3,7 @@
         <img :src="prop.images" class="card-img" alt="Card image cap">
         <div class="card-img-overlay">
             <div class="categorie">
-                <h3 class="bull">{{prop.type}}</h3>
+                <h3 class="bull"><i :class="(prop.type=='News')?'fa fa-newspaper':(prop.type==='Features')?'fa fa-users':'fa fa-microphone'"></i><span> {{prop.type}}</span></h3>
             </div>
         </div>
         <div class="card-body">
@@ -37,12 +37,16 @@ export default {
 
 <style scoped>
 
+
+
 .card{
     border-radius: 3%!important;
     overflow: hidden;
     cursor: pointer;
 }
-
+.card:hover {
+    transform: scaleX(1.05) scaleY(1.05);
+}
 .card-img{
     border-radius: 3% 3% 0% 0% !important;
 }

@@ -1,7 +1,6 @@
 <template>
-    <div class="card mt-5">
-        <img class="card-img-top" src="https://www.expat.com//images/upload/7/1/3/2/1656669299-cost-of-living.jpg"
-            alt="Card image">
+    <div class="card mt-5" v-if="prop">
+        <img class="card-img-top" :src="prop.images" alt="Card image">
         <div class="card-body">
             <div class="info">
                 <p class="info-time">Published on <span class="date">{{formatDate.day}}</span> at <span
@@ -39,9 +38,6 @@ export default {
 </script>
 
 <style>
-
-
-
     .card{
         height: 100%;
     }

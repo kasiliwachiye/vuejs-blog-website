@@ -1,6 +1,11 @@
 body{
     margin: 0;
 }
-p{
-    font-style: italic;
+input {
+    background: transparent!important;
+}
+
+input:focus {
+    background: transparent;
+    box-shadow: none!important;
 }
