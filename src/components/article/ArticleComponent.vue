@@ -26,10 +26,10 @@ export default {
     },
     computed:{
         cropTitle(){
-            return this.prop.title.length>=30?this.prop.title.slice(0,30)+"...":this.prop.title
+            return this.prop.title.slice(0,30)+"..."
         },
         cropIntro() {
-            return this.prop.introduction.length >= 100 ? this.prop.introduction.slice(0, 100) + "..." : this.prop.introduction
+            return this.prop.introduction.slice(0, 100) + "..."
         }
     }
 }

@@ -21,9 +21,7 @@ const store =new Vuex.Store({
         },
         setFilter(state,payload){
             if(payload.type)state.type=payload.type;
-            if(payload.search){
-                state.search=payload.search;
-            }
+            if(payload.search)state.search=payload.search;
             if(payload.sort)state.sort=payload.sort;
         },
     },
@@ -33,7 +31,7 @@ const store =new Vuex.Store({
                 const response=await getAllArticle();
                 commit('setData',response.data)
             }catch(error){
-                console.log(error)
+                alert('oups!500 internal error')
             }
         },
         action_set_id({commit},payload){
@@ -52,7 +50,7 @@ const store =new Vuex.Store({
             if(state.type!=''){
                 response.data=response.data.filter(d=>d.type==state.type)
             }
-            if(state.search!=''){
+            if(state.search){
                 let key=state.search.toLowerCase()
                 response.data=response.data.filter(d=>(d.title.toLowerCase().includes(key)||
                 d.introduction.toLowerCase().includes(key)||

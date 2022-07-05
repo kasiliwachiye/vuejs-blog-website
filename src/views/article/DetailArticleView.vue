@@ -25,14 +25,14 @@ export default {
     this.loading=true;
     this.action_set_id(this.id);
     await this.action_load_data();
+    document.title=this.findById.title;
     this.loading=false;
-    console.log(this.loading)
   },
   methods:{
     ...mapActions(['action_load_data','action_set_id'])
   },
   computed:{
-    ...mapGetters(['findById','getId'])
+    ...mapGetters(['findById'])
   }
 }
 </script>
