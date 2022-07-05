@@ -1,10 +1,11 @@
 <template>
   <div class="container">
-    <loading-component v-if="loading"/>
+    <loading-component v-if="loading" />
     <div class="row d-flex justify-content-center mt-3 mb-5">
       <h1 id="title">Welcome to the list of articles</h1>
     </div>
     <div class="row">
+      <not-found-view :textError="textError" v-if="filteredData.data.length==0" id="notfound"></not-found-view>
       <div class="col-lg-4 col-md-6 my-3" v-for="article in filteredData.data" :key="article.id">
         <article-component :prop="article"></article-component>
       </div>
@@ -17,15 +18,17 @@
 import ArticleComponent from '@/components/article/ArticleComponent.vue'
 import { mapActions, mapGetters } from 'vuex'
 import LoadingComponent from '@/components/loading/LoadingComponent.vue';
+import NotFoundView from '../error/NotFoundView.vue';
 export default {
   // meta info
   metaInfo: {
     titleTemplate: `%s  list of articles and magazines about expatriation`,
   },
-  components: { ArticleComponent, LoadingComponent },
+  components: { ArticleComponent, LoadingComponent, NotFoundView },
   data(){
       return {
-        loading:false
+        loading:false,
+        textError:'[No result found]'
       };
   },
   mounted:async function(){
@@ -44,8 +47,10 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 #title{
   color:teal;
+}
+#notfound{
 }
 </style>

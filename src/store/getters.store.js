@@ -14,8 +14,8 @@ const getters={
             d.body.toLowerCase().includes(key)))
         }
         if(state.sort){
-            state.sort=='asc'&&response.data.sort((a, b) => a.name > b.name ? 1 : -1);
-            state.sort=='dsc'&&response.data.sort((a, b) => a.name < b.name ? 1 : -1);              
+            state.sort=='asc'&&response.data.sort((a, b) => a.date > b.date ? 1 : -1);
+            state.sort=='dsc'&&response.data.sort((a, b) => a.date < b.date ? 1 : -1);              
         }
         return response;
     },

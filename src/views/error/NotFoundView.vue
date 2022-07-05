@@ -1,12 +1,17 @@
 <template>
   <div class="container">
-    <h1>[404] Not found</h1>
+    <h1>{{text}}</h1>
   </div>
 </template>
 
 <script>
 export default {
-
+  props:['textError'],
+  data(){
+    return {
+      text: this.textError ? this.textError :'[404] Not found'
+    }
+  }
 }
 </script>
 

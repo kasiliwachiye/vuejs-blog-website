@@ -71,6 +71,7 @@ export default {
 <style>
 
 
+
 #logo{
     width: 100px;
 }
