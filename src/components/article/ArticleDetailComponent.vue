@@ -20,7 +20,6 @@
 <script>
 export default {
     props:['prop'],
-
     computed:{
         formatDate(){
             let d = this.prop.date.replace(/\s/g, "");

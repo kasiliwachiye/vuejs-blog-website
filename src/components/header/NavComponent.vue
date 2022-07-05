@@ -1,5 +1,5 @@
 <template>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg sticky-top shadow-xs navbar-light bg-light">
         <router-link to="/">
             <img src="../../assets/images/logo.png" id="logo" alt="">
         </router-link>
@@ -9,6 +9,9 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown" v-if="$route.name=='home'">
             <ul class="navbar-nav ml-auto">
+                <li class="d-flex justify-contnent-center align-items-center mr-5">
+                    <p id="filter">Filter: </p>
+                </li>
                 <li class="nav-item mr-2 d-flex align-items-center my-2">
                     <p id="calendar" :class="sort?'active':'inactive'">
                         <i class="fa fa-arrow-up" v-if="sort=='asc'"></i>
@@ -67,8 +70,13 @@ export default {
 
 <style>
 
+
 #logo{
     width: 100px;
+}
+#filter{
+    color: teal;
+    font-weight: bold;
 }
 .active{
     color: teal;

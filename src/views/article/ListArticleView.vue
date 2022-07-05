@@ -18,6 +18,7 @@ import ArticleComponent from '@/components/article/ArticleComponent.vue'
 import { mapActions, mapGetters } from 'vuex'
 import LoadingComponent from '@/components/loading/LoadingComponent.vue';
 export default {
+  // meta info
   metaInfo: {
     titleTemplate: `%s  list of articles and magazines about expatriation`,
   },
