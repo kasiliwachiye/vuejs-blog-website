@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <loading-component v-if="loading"/>
-    <article-detail-component :prop="findById"/>
+    <article-detail-component :prop="oneArticle"/>
   </div>
 </template>
 
@@ -25,14 +25,14 @@ export default {
     this.loading=true;
     this.action_set_id(this.id);
     await this.action_load_data();
-    document.title=this.findById.title;
+    document.title = this.oneArticle.title;
     this.loading=false;
   },
   methods:{
     ...mapActions(['action_load_data','action_set_id'])
   },
   computed:{
-    ...mapGetters(['findById'])
+    ...mapGetters(['oneArticle'])
   }
 }
 </script>

@@ -56,16 +56,14 @@ const store =new Vuex.Store({
                 d.introduction.toLowerCase().includes(key)||
                 d.body.toLowerCase().includes(key)))
             }
-            if(state.sort!=''){
+            if(state.sort){
                 state.sort=='asc'&&response.data.sort((a, b) => a.name > b.name ? 1 : -1);
-                state.sort=='desc'&&response.data.sort((a, b) => a.name < b.name ? 1 : -1);              
+                state.sort=='dsc'&&response.data.sort((a, b) => a.name < b.name ? 1 : -1);              
             }
             return response;
         },
-        findById(state){
-            const huhu=state.data.find(a=>a.id==state.id);
-            console.log(huhu)
-            return huhu;
+        oneArticle(state){
+            return state.data.find(a=>a.id==state.id);
         },
         types(state){
             return state.data.reduce((previous,current)=>{

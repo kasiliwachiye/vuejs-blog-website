@@ -23,7 +23,6 @@ const routes = [
     },
 ]
 
-// eslint-disable-next-line no-new
 const router = new VueRouter({
     linkActiveClass: "active",
     mode: "history",

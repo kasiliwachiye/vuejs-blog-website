@@ -1,30 +1,20 @@
 <template>
-    <!-- Footer -->
     <footer class="text-center text-lg-start bg-light text-muted pt-2">
-
-        <!-- Section: Links  -->
         <section class="">
             <div class="container text-center text-md-start mt-5">
-                <!-- Grid row -->
                 <div class="row mt-3">
-                    <!-- Grid column -->
                     <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-                        <!-- Content -->
                         <h6 class="text-uppercase fw-bold mb-4">
-                            <img src="../../assets/images/favicon.webp" alt="" srcset="">EXPAT
+                            <a href="https://www.expat.com"><img src="../../assets/images/favicon.webp" alt="expat.com" srcset="">EXPAT</a>
                         </h6>
                         <p>
                             Partagez votre expérience d'expatrié sur expat.com, la communauté des expatriés en ligne.
                             Trouvez ici tout ce dont vous avez besoin pour réussir votre expatriation
                         </p>
                     </div>
-                    <!-- Grid column -->
-
-                    <!-- Grid column -->
                     <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-                        <!-- Links -->
                         <h6 class="text-uppercase fw-bold mb-4">
-                            Products
+                            Services
                         </h6>
                         <p>
                             <a href="https://www.bing.com/ck/a?!&&p=451c8219e8d7108757e1790e6e42a61380c2ad35ef3232123b96b0e165a08e40JmltdHM9MTY1Njk2NjYzNyZpZ3VpZD1hZjhmMGI0MC03MzUyLTRkNWQtYjNjNC00NjkxZjdhYWQ3MzImaW5zaWQ9NTM0NQ&ptn=3&hsh=1&fclid=29c1acea-fbd8-11ec-8114-9ebf3e050afd&u=a1aHR0cHM6Ly93d3cuZXhwYXQuY29tL2ZyL2ZvcnVtLw&ntb=1"
@@ -43,11 +33,7 @@
                                 class="text-reset">Magazine</a>
                         </p>
                     </div>
-                    <!-- Grid column -->
-
-                    <!-- Grid column -->
                     <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-                        <!-- Links -->
                         <h6 class="text-uppercase fw-bold mb-4">
                             Contact
                         </h6>
@@ -64,21 +50,14 @@
                         </p>
                         <p><i class="fas fa-phone me-3"></i> +261 34 24 926 75</p>
                     </div>
-                    <!-- Grid column -->
                 </div>
-                <!-- Grid row -->
             </div>
         </section>
-        <!-- Section: Links  -->
-
-        <!-- Copyright -->
         <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
             © 2022 Copyright:
-            <a class="text-reset fw-bold" href="https://mdbootstrap.com/">ETU972</a>
+            <a class="text-reset fw-bold" href="https://mdbootstrap.com/">JAHNHAH972</a>
         </div>
-        <!-- Copyright -->
     </footer>
-    <!-- Footer -->
 </template>
 
 <script>

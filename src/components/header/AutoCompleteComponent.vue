@@ -27,9 +27,6 @@ export default {
         };
     },
     methods: {
-        test(){
-            console.log('helo')
-        },
         filterResults() {
             this.results = this.items.filter(item => item.toLowerCase().indexOf(this.search.toLowerCase()) > -1);
         },
