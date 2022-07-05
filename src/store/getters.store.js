@@ -4,15 +4,18 @@ const getters={
     },
     filteredData(state){
         let response={...state};
-        if(state.type!=''){
-            response.data=response.data.filter(d=>d.type==state.type)
+        const checkType=(data)=>{
+            console.log(data.type,data)
+            return (data.type==state.type)||(state.type=='');
         }
-        if(state.search){
+        const checkSearch=(data)=>{
             let key=state.search.toLowerCase()
-            response.data=response.data.filter(d=>(d.title.toLowerCase().includes(key)||
-            d.introduction.toLowerCase().includes(key)||
-            d.body.toLowerCase().includes(key)))
+            return data.title.toLowerCase().includes(key)||
+            data.introduction.toLowerCase().includes(key)||
+            data.body.toLowerCase().includes(key)||
+            key==''
         }
+        response.data=response.data.filter(d=>checkType(d)&&checkSearch(d))
         if(state.sort){
             state.sort=='asc'&&response.data.sort((a, b) => a.date > b.date ? 1 : -1);
             state.sort=='dsc'&&response.data.sort((a, b) => a.date < b.date ? 1 : -1);              

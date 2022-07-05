@@ -24,7 +24,7 @@
                 </li>
                 <li class="nav-item ml-2 my-2">
                     <div class="form-group">
-                        <input type="text" v-model="search" @keypress="searchChange" name="search" id="search"
+                        <input type="text" v-model="search" @keydown="searchChange" name="search" id="search"
                             placeholder="Search here" class="form-control">
                     </div>
                 </li>
