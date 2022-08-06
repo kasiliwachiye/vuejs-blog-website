@@ -4,7 +4,7 @@
             <img :src="item.images" v-html="item.images"/>
             <div class="content">
                 <div v-html="item.type" :class="[item.type, 'article-type']"></div>
-                <div v-html="item.date"></div>
+                <div v-html="item.date" :class="['article-date']"></div>
                 <div 
                     v-html="item.title"
                     :class="['article-title']"
@@ -37,9 +37,14 @@ export default {
     .article-item:hover {
         border: 1px solid rgb(145, 141, 141);
     }
+    .article-date {
+        text-align: right;
+        margin-bottom: 15px;
+        font-size: 12px;
+    }
     .article-title {
         display: -webkit-box;
-        -webkit-line-clamp: 3;
+        -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
         overflow: hidden;
     }
