@@ -11,6 +11,7 @@
       <input type="text" v-model="search" placeholder="Titre de l'article">
     </div>
     <div class="container">
+      <div v-if="filterOnTitle.length < 1">Aucun article</div>
       <BlocArticle :item="item" v-for="(item, key) in filterOnTitle" v-bind:key="key"/>
     </div>
   </div>
