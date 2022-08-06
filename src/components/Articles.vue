@@ -2,41 +2,28 @@
   <div class="hello">
     <h3>Articles</h3>
     <hr>
+    <p>
+      <BlocArticle :item="item" v-for="(item, key) in data" v-bind:key="key"/>
+    </p>
   </div>
 </template>
 
 <script>
-import Vue from 'vue';
-import axios from 'axios';
-import VueAxios from 'vue-axios';
+import BlocArticle from "./blocArticle.vue";
+import data from '../data.json'
 
-Vue.use(VueAxios, axios)
+console.log(data)
 export default {
-  name: 'HelloWorld',
-  props: {
-    msg: String
-  },
-  mounted() {
-    Vue.axios.get('https://www.expat.com/dataset.php')
-      .then(res => console.log(res.data.data))
-  }
+    name: "ArticlesDisplay",
+    data() {
+        return {
+            data: data
+        };
+    },
+    components: { BlocArticle },
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
 </style>
