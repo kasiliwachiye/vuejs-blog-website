@@ -2,8 +2,9 @@
     <div>
         <div class="article-item">
             <img :src="item.images" v-html="item.images"/>
-            <div class="content" :class="[item.type]">
-                <div v-html="item.type"></div>
+            <div class="content">
+                <div v-html="item.type" :class="[item.type, 'article-type']"></div>
+                <div v-html="item.date"></div>
                 <div 
                     v-html="item.title"
                     :class="['article-title']"
@@ -12,7 +13,6 @@
                     v-html="item.introduction" 
                     :class="['article-introduction']"
                 ></div>
-                <div v-html="item.date"></div>
             </div>
             <!-- <div v-html="item.body"></div> -->
         </div>
@@ -47,11 +47,35 @@ export default {
         -webkit-box-orient: vertical;
         overflow: hidden;
     }
+    .article-type {
+        position: absolute;
+        top: -35px;
+        padding: 4px 10px;
+        border-radius: 5px;
+        font-size: 12px;
+    }
     img {
         width: 250px;
         border-radius: 8px 8px 0 0;
     }
     .content {
         margin: 0 10px;
+        position: relative;
+    }
+    .News {
+        color: #FFF;
+        background-color: rgb(121, 185, 121);
+    }
+    .Features {
+        color: #FFF;
+        background-color: rgb(207, 114, 38);
+    }
+    .Interviews {
+        color: #FFF;
+        background-color: rgb(38, 106, 207);
+    }
+    .Sponsored.articles {
+        color: #FFF;
+        background-color: rgb(207, 38, 75);
     }
 </style>
