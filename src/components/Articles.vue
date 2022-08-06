@@ -2,9 +2,9 @@
   <div class="hello">
     <h3>Articles</h3>
     <hr>
-    <p>
+    <div class="container">
       <BlocArticle :item="item" v-for="(item, key) in data" v-bind:key="key"/>
-    </p>
+    </div>
   </div>
 </template>
 
@@ -26,4 +26,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 </style>
