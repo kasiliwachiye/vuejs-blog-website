@@ -35,7 +35,7 @@ export default {
         border-radius: 8px;
     }
     .article-item:hover {
-        border: 1px solid rgb(145, 141, 141);
+        box-shadow: 0 0 0 4px #f1f1f1;
     }
     .article-date {
         text-align: right;
