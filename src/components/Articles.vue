@@ -4,10 +4,7 @@
     <div class="filter">
       <select name="type" class="input-article" id="" v-model="type">
         <option value="">All</option>
-        <option value="news">News</option>
-        <option value="features">Features</option>
-        <option value="interviews">Interviews</option>
-        <option value="sponsored">Sponsored articles</option>
+        <option :value="item" v-for="(item, key) in selectType" v-bind:key="key">{{ item }}</option>
       </select>
       <input type="text" v-model="search" class="input-article" placeholder="Titre de l'article">
       Order by :
@@ -26,6 +23,12 @@ import BlocArticle from "./blocArticle.vue";
 import data from '../data.json'
 
 import moment from 'moment'
+// import axios from 'axios'
+
+// axios.get('https://www.expat.com/dataset.php')
+//   .then(res => {
+//     console.log(res.data)
+//   })
 
 export default {
   name: "ArticlesDisplay",
@@ -45,6 +48,9 @@ export default {
     filterData: function () {
       return this.filterByTitle(this.filterByType(this.data))
     },
+    selectType: function() {
+      return [...new Set(this.data.map(item => item.type))];
+    }
   },
   methods: {
     filterByType: function (data) {
@@ -67,7 +73,7 @@ export default {
       this.asc = false;
       return this.data.sort((a, b) => moment(b.date) - moment(a.date))
     }
-  }
+  },
 }
 </script>
 

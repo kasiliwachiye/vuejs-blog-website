@@ -1,16 +1,12 @@
 <template>
 <div>
-    <div class="article-title">
-        <div v-html="article.title" :class="['article-title-content']"></div>
-    </div>
     <div class="container">
-        <div class="item article-body">
-            <div v-html="article.body"></div>
-        </div>
         <div class="item article-info">
+            <div v-html="article.title" :class="['article-title-content']"></div>
             <img :src="article.images" v-html="article.images"/>
             <div v-html="article.introduction"></div>
             <span v-html="article.type" :class="[article.type, 'article-title-type']"></span> - <span v-html="article.date" :class="['article-title-date']"></span>
+            <div v-html="article.body"></div>
         </div>
     </div>
 </div>
@@ -40,10 +36,11 @@ export default {
     .article-title {
         margin: 10px 50px 50px 50px;
     }
-    .article-title .article-title-content {
+    .article-title-content {
         border-bottom: 1px solid #000;
         font-size: 35px;
         font-weight: bold;
+        margin-bottom: 25px;
     }
     .container {
         display: flex;
@@ -51,9 +48,8 @@ export default {
     }
     .container .item {
         padding: 0 50px;
-    }
-    .container .item.article-info {
         padding-right: 50px;
+        max-width: 750px;
     }
     .article-title-type {
         padding: 4px 10px;

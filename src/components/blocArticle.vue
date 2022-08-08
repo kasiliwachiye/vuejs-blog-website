@@ -15,7 +15,7 @@
                 ></div>
             </div>
             <router-link :to="'/articles/'+item.id">
-            <div class="article-view"><button>Voir plus</button></div>
+            <div class="article-view"><button>View details</button></div>
             </router-link>
             <!-- <div v-html="item.body"></div> -->
         </div>
@@ -55,6 +55,7 @@ export default {
         -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
         overflow: hidden;
+        font-weight: normal !important;
     }
     .article-type {
         position: absolute;
@@ -73,7 +74,7 @@ export default {
     .article-view button {
         border: none;
         background-color: #e5f6ff;
-        padding: 8px 15px;
+        padding: 5px 15px;
         cursor: pointer;
     }
     .article-view button:hover {
