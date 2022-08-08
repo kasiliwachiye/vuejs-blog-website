@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <h2><span>Nos articles</span></h2>
+    <h2><span>{{ titleBloc }}</span></h2>
     <div class="filter">
       <select name="type" class="input-article" id="" v-model="type">
         <option value="">All</option>
@@ -32,6 +32,7 @@ export default {
   props: ['title'],
   data() {
     return {
+      titleBloc: 'Nos articles',
       data: data,
       search: '',
       type: '',
