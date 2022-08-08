@@ -14,7 +14,9 @@
                     :class="['article-introduction']"
                 ></div>
             </div>
+            <router-link :to="'/articles/'+item.id">
             <div class="article-view"><button>Voir plus</button></div>
+            </router-link>
             <!-- <div v-html="item.body"></div> -->
         </div>
     </div>
