@@ -10,19 +10,18 @@
         <div>
           <p
             class="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-white uppercase rounded-full bg-primary"
-          >
-            News
-          </p>
+            v-html="article.type"
+          ></p>
         </div>
         <h2
-          class="max-w-lg mb-6 font-sans text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto"
-        >
-          The quick, brown fox jumps over a lazy dog
-        </h2>
-        <p class="text-base text-gray md:text-lg">
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-          accusantium doloremque rem aperiam, eaque ipsa quae.
-        </p>
+          class="max-w-lg mb-6 text-3xl font-bold leading-none tracking-tight text-gray-900 sm:text-4xl md:mx-auto uppercase"
+          v-html="article.title"
+        ></h2>
+        <p class="text-gray-600" v-html="article.date"></p>
+        <p
+          class="text-base text-gray md:text-lg"
+          v-html="article.introduction"
+        ></p>
       </div>
       <div class="mx-auto lg:max-w-2xl">
         <div
@@ -30,14 +29,14 @@
         >
           <img
             class="object-cover w-full h-56 rounded shadow-lg sm:h-64 md:h-80 lg:h-96"
-            src="https://images.pexels.com/photos/927022/pexels-photo-927022.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=3&amp;h=750&amp;w=1260"
+            :src="article.images"
             alt=""
           />
         </div>
-        <p class="text-base mt-5 text-gray md:text-lg">
-          Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-          accusantium doloremque rem aperiam, eaque ipsa quae.
-        </p>
+        <p
+          class="text-base mt-5 text-gray md:text-lg"
+          v-html="article.body"
+        ></p>
       </div>
     </div>
     <FooterVue />
@@ -46,9 +45,25 @@
 <script>
 import NavbarVue from "./common/Navbar.vue";
 import FooterVue from "./common/Footer.vue";
+import data from "../data.json";
+
 export default {
   name: "ArticleDetails",
   components: { NavbarVue, FooterVue },
+  data() {
+    return {
+      id: this.$route.params.id,
+      data: data,
+      article: {},
+    };
+  },
+  created() {
+    this.article = this.data.filter((item) => {
+      return item.id == this.id;
+    });
+    this.article = this.article[0];
+    console.log(this.article);
+  },
 };
 </script>
 <style></style>

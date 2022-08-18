@@ -1,6 +1,6 @@
 <template>
   <div class="navbar bg-neutral text-neutral-content">
-    <a class="btn btn-ghost normal-case text-xl">expat.com</a>
+    <router-link to="/" class="btn btn-ghost normal-case text-xl">expat.com</router-link>
   </div>
 </template>
 

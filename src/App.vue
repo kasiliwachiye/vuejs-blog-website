@@ -1,17 +1,13 @@
 <template>
   <div id="app">
-    <ArticleVue />
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import ArticleVue from './components/Articles.vue';
 
 export default {
-  name: 'App',
-  components: {
-    ArticleVue
-}
+  name: 'App'
 }
 </script>
 
