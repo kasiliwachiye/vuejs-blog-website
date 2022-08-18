@@ -10,7 +10,7 @@
           id=""
           v-model="type"
         >
-          <option value="">Pick category</option>
+          <option value="">Pick type</option>
           <option
             :value="item"
             v-for="(item, key) in categoryOptions"
