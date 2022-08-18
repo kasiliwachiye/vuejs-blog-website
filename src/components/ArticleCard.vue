@@ -8,7 +8,7 @@
       class="object-cover w-full h-64"
       alt=""
     />
-    <div class="p-5 border border-t-0">
+    <div class="p-5  border-t-0">
       <p class="mb-3 text-xs font-semibold tracking-wide uppercase">
         <a
           class="transition-colors duration-200 text-primary hover:text-primary-focus"
@@ -19,7 +19,7 @@
         <span class="text-gray-600" > — {{ article.date }}</span>
       </p>
       <router-link
-        to="/articledetails/:id"
+        :to="'/articledetails/' + article.id"
         aria-label="Title"
         v-html="article.title"
         class="inline-block mb-3 text-2xl font-bold leading-5 transition-colors duration-200 hover:text-neutral"
