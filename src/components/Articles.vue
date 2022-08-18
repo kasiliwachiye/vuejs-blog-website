@@ -44,7 +44,7 @@
       <div
         class="grid gap-8 lg:grid-cols-3 sm:max-w-sm sm:mx-auto lg:max-w-full"
       >
-        <ArticleCard />
+        <ArticleCard  />
       </div>
     </div>
     <FooterVue />
